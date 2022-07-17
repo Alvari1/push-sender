@@ -20,7 +20,7 @@ fun main() {
           "postId": 2,
           "postAuthor": "Netology"
         }""".trimIndent())
-        .setToken("add_token_here")
+        .setToken("put_token_here")
         .build()
 
     FirebaseMessaging.getInstance().send(message)
@@ -34,8 +34,20 @@ fun main() {
           "postAuthor": "Netology",
           "postContent": "some post content here"
         }""".trimIndent())
-        .setToken("add_token_here")
+        .setToken("put_token_here")
         .build()
 
     FirebaseMessaging.getInstance().send(message2)
+
+    val message3 = Message.builder()
+        .putData("action", "STRANGER")
+        .putData("content", """{
+          "userId": 1,
+          "postId": 2,
+          "postContent": "some post content here"
+        }""".trimIndent())
+        .setToken("put_token_here")
+        .build()
+
+    FirebaseMessaging.getInstance().send(message3)
 }
